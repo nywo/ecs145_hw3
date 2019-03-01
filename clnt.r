@@ -22,6 +22,7 @@ otpClient <- function(host="localhost",port=2002){
 		} else if (f == "exit") {
 			close(con)
 			print("Connection Closed\n")
+			break
 		} else {
 			print("Error: request not recognized")
 

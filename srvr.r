@@ -4,9 +4,9 @@ OptServer <- function(nclnt, port=2002){
 	master_data <- data.frame(matrix(ncol = 3, nrow = 0))
 	names <- c("ObjectName", "NBytes", "ObjectClass")
 	colnames(master_data) <- names
+	con <- socketConnection(host="localhost", port = port, blocking=TRUE,server=TRUE, open="r+")
 
 	while(TRUE){
-		con <- socketConnection(host="localhost", port = port, blocking=TRUE,server=TRUE, open="r+")
 		order <- unserialize(con)
 
 		if(order == "ol"){
